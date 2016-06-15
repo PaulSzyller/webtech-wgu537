@@ -1,20 +1,21 @@
 <?php
     include('database.php');
+    include('functions.php');
     //start session
     session_start();
 
     //get inputs from $_POST
-    $username = $_POST["username"];
+    $username = sanitizeString($_POST["username"]);
     $password = $_POST["password"];
     $password_conf = $_POST["password_conf"];
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $dob = $_POST["dob"];
-    $gender = $_POST["gender"];
-    $question = $_POST["question"];
-    $answer = $_POST["answer"];
-    $location = $_POST["location"];
-    $profile_pic = $_POST["profile_pic"];
+    $name = sanitizeString($_POST["name"]);
+    $email = sanitizeString($_POST["email"]);
+    $dob = sanitizeString($_POST["dob"]);
+    $gender = sanitizeString($_POST["gender"]);
+    $question = sanitizeString($_POST["question"]);
+    $answer = sanitizeString($_POST["answer"]);
+    $location = sanitizeString($_POST["location"]);
+    $profile_pic = sanitizeString($_POST["profile_pic"]);
 
     //check for password and confirmation matching
     if($password != $password_conf) {
@@ -24,6 +25,7 @@
     elseif (($hash_pw = password_hash($password, PASSWORD_DEFAULT)) == FALSE){
         echo "Something went wrong, please try again!";
     }
+    $hash_pw = sanitizeString($hash_pw);
 
     //connect to db
     $conn = connect_db();

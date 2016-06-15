@@ -1,5 +1,6 @@
 <?php
 	include('database.php');
+	include('functions.php');
 	//connect to db
 	$conn = connect_db();
 
@@ -13,7 +14,7 @@
 	//get likes value stored in variable
 	$likes = $row['likes'];
 	//increment value
-	$likes = $likes + 1;
+	$likes = sanitizeString($likes + 1);
 	//update likes for the post in the DB
 	$result = mysqli_query($conn, "UPDATE posts SET likes='$likes' WHERE id='$PID'");
 	

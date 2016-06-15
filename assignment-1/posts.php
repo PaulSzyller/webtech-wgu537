@@ -1,10 +1,11 @@
 <?php
 	include('database.php');
+	include('functions.php');
 	session_start();
 
 	//GET data from the form
-	$content = $_POST['content'];
-	$UID = $_POST['UID'];
+	$content = sanitizeString($_POST['content']);
+	$UID = sanitizeString($_POST['UID']);
 
 	//connect to DB
 	$conn = connect_db();
@@ -12,11 +13,12 @@
 	$row = mysqli_fetch_assoc($result);
 
 	//fetch user info
-	$name = $row["Name"];
-	$profile_pic = $row["profile_pic"];
+	$name = sanitizeString($row["Name"]);
+	$profile_pic = sanitizeString($row["profile_pic"]);
+	$likes = sanitizeString("0");
 
 	//insert into posts database
-	$result_insert = mysqli_query($conn, "INSERT INTO posts (id, content, UID, name, profile_pic, likes) VALUES (NULL, '$content', '$UID', '$name', '$profile_pic', '0')");
+	$result_insert = mysqli_query($conn, "INSERT INTO posts (id, content, UID, name, profile_pic, likes) VALUES (NULL, '$content', '$UID', '$name', '$profile_pic', '$likes')");
 
 	if($result_insert) {
 		//redirect to feed page
