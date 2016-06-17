@@ -12,6 +12,7 @@
 		$var = strip_tags($var);
 		$var = htmlentities($var);
 		$var = stripslashes($var);
-		return mysqli_real_escape_string($var);
+		return $var;
+		#return mysqli_real_escape_string($var);
 	}
 ?>
