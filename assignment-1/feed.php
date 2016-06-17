@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    //preventing the feed page to be accessible while to logged in.
+    if(!isset($_SESSION['username'])){
+        header("Location: login.html");
+    }
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +14,7 @@
 	<?php
 		include('database.php');
 
-        //start session and connect to DB
-    	session_start();
+        //connect to DB
     	$conn = connect_db();
 
         //get info on user from users data table
@@ -19,7 +25,11 @@
     	$row = mysqli_fetch_assoc($result);
         //display welcome message + pic
     	echo "<center><h1>Welcome back " . $row["Name"] . "!</h1>";
-    	echo "<img src='" . $row["profile_pic"] . "'></center>";
+    	echo "<img src='" . $row["profile_pic"] . "'>";
+        //logout
+        echo "<form method='GET' action='logout.php'>";
+        echo "<input type='submit' value='logout'>";
+        echo "</form></center>";
         echo "<hr>";
 	
         //new post form
