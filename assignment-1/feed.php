@@ -33,26 +33,26 @@
 
         //display all posts from posts data table
         $result_posts = mysqli_query($conn, "SELECT * FROM posts ORDER BY id DESC");
-        $num_of_rows = mysqli_num_rows($result_posts);
-        for ($i = 0; $i < $num_of_rows; $i++){
-            $row = mysqli_fetch_assoc($result_posts);
-            echo "<hr><p>$row[name] (" . date("m/d/Y h:i:sa", strtotime($row['created_at'])) . "):<br>$row[content]";
+        $num_of_posts = mysqli_num_rows($result_posts);
+        for ($i = 0; $i < $num_of_posts; $i++){
+            $post_row = mysqli_fetch_assoc($result_posts);
+            echo "<hr><p>$post_row[name] (" . date("m/d/Y h:i:sa", strtotime($post_row['created_at'])) . "):<br>$post_row[content]";
             echo "<form action='likes.php' method='POST'>";
-            echo "<input type='hidden' name='PID' value='$row[id]'><input type='submit' value='Like'>($row[likes])";
+            echo "<input type='hidden' name='PID' value='$post_row[id]'><input type='submit' value='Like'>($post_row[likes])";
             echo "</form>";
 
             //new comment form
             echo "<form method='POST' action='comments.php'>";
             echo "<label>Comment on this post:</label><br>";
             echo "<textarea name='content'>Say something...</textarea><br>";
-            echo "<input type='hidden' name='UID' value='$row[UID]'>";
-            echo "<input type='hidden' name='PID' value='$row[id]'>";
+            echo "<input type='hidden' name='UID' value='$row[id]'>";
+            echo "<input type='hidden' name='PID' value='$post_row[id]'>";
             echo "<input type='submit'>";
             echo "</form>";
             echo "</p>";
 
             //display all comments for this post
-            $result_comments = mysqli_query($conn, "SELECT * FROM comments WHERE PID='$row[id]' ORDER BY id DESC");
+            $result_comments = mysqli_query($conn, "SELECT * FROM comments WHERE PID='$post_row[id]' ORDER BY id DESC");
             $num_of_comments = mysqli_num_rows($result_comments);
             for ($j = 0; $j < $num_of_comments; $j++){
                 $comment_row = mysqli_fetch_assoc($result_comments);
