@@ -520,6 +520,7 @@ class ComposerStaticInita044fe685b5c5faba15fc8a83ced2767
         'File_X509' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/File/X509.php',
         'FirefoxDriver' => __DIR__ . '/..' . '/facebook/webdriver/lib/firefox/FirefoxDriver.php',
         'FirefoxProfile' => __DIR__ . '/..' . '/facebook/webdriver/lib/firefox/FirefoxProfile.php',
+        'FriendsController' => __DIR__ . '/../..' . '/app/controllers/FriendsController.php',
         'GuzzleHttp\\Adapter\\AdapterInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Adapter/AdapterInterface.php',
         'GuzzleHttp\\Adapter\\Curl\\BatchContext' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Adapter/Curl/BatchContext.php',
         'GuzzleHttp\\Adapter\\Curl\\CurlAdapter' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Adapter/Curl/CurlAdapter.php',

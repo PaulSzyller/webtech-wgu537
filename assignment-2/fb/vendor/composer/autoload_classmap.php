@@ -263,6 +263,7 @@ return array(
     'File_X509' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/X509.php',
     'FirefoxDriver' => $vendorDir . '/facebook/webdriver/lib/firefox/FirefoxDriver.php',
     'FirefoxProfile' => $vendorDir . '/facebook/webdriver/lib/firefox/FirefoxProfile.php',
+    'FriendsController' => $baseDir . '/app/controllers/FriendsController.php',
     'GuzzleHttp\\Adapter\\AdapterInterface' => $vendorDir . '/guzzlehttp/guzzle/src/Adapter/AdapterInterface.php',
     'GuzzleHttp\\Adapter\\Curl\\BatchContext' => $vendorDir . '/guzzlehttp/guzzle/src/Adapter/Curl/BatchContext.php',
     'GuzzleHttp\\Adapter\\Curl\\CurlAdapter' => $vendorDir . '/guzzlehttp/guzzle/src/Adapter/Curl/CurlAdapter.php',
