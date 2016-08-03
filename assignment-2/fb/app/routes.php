@@ -22,5 +22,9 @@ Route::post('/post', 'PostController@createPost');
 //Comment
 Route::post('/comment', 'CommentsController@createComment');
 
+//Friends
+Route::get('/friends', 'FriendsController@showFriendsView');
+Route::post('/friends', 'FriendsController@addFriend');
+
 //Misc
 Route::get('/users', 'AuthenticationController@showUsers');
