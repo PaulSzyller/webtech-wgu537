@@ -1,0 +1,29 @@
+body{
+    background: #f8f8f8;
+}
+
+
+.profile{
+    margin: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 20px 20px 20px 20px;
+    text-align: center;
+}
+
+.add-friend-form{
+    margin: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 20px 20px 20px 20px;
+}
+
+.form-group textarea{
+    width:100%;
+    resize: none;
+    border-color: #eeeeee;
+}
+
+.friends{
+    margin: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 20px 20px 20px 20px;
+}
