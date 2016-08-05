@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'nvc038@my.utsa.edu', 'name' => 'Akhil'),
+	'from' => array('address' => getenv('EMAILFROMADDRESS'), 'name' => getenv('EMAILFROMNAME')),
 
 	/*
 	|--------------------------------------------------------------------------

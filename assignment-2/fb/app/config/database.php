@@ -54,11 +54,11 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'fb',
-			'username'  => 'root',
-			'password'  => 'root',
-			'unix_socket'	=> '/Applications/MAMP/tmp/mysql/mysql.sock',
+			'host'      => getenv('DBHOST'),
+			'database'  => getenv('DBNAME'),
+			'username'  => getenv('DBUSERNAME'),
+			'password'  => getenv('DBPASS'),
+			'unix_socket'	=> getenv('DBSOCK'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
