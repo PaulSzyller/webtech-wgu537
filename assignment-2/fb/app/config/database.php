@@ -55,10 +55,10 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => getenv('DBHOST'),
+			'unix_socket' => getenv('DBSOCK'),
 			'database'  => getenv('DBNAME'),
 			'username'  => getenv('DBUSERNAME'),
 			'password'  => getenv('DBPASS'),
-			'unix_socket'	=> getenv('DBSOCK'),
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
