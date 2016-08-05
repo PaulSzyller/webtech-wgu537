@@ -55,13 +55,26 @@ class FriendsController extends \BaseController {
         }
 
 		try {
+            //create friend entry
 			$input = Friend::create([
 				'user_id' => $user->id,
                 'friend_id' => $friend->id,
 				'friend_email' => $friend_email
 			]);
+            //increment # of friends for user
             $user->increment('num_of_friends');
-		}catch(Exception $e){
+
+            //send email notification
+            //NOT CURRENTLY WORKING
+            /*$data = ['user' => $user,
+                'friend' => User::where('id', '=', $friend->friend_id)->get()->first()];
+            Mail::send('emails.newfriend', $data
+                , function ($message) use ($friend_email) {
+                $message->to($friend_email)
+                    ->subject("Someone Added you as a friend.");
+            });*/
+		}
+        catch(Exception $e){
 			Session::flash('error_message',
 				'Oops! Something is wrong');
 			return Redirect::back()->withInput();
