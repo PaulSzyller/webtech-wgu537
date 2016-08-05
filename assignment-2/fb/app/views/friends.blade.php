@@ -74,9 +74,11 @@
                 @endif
                 <!-- Actual friend list -->
                 <div class="friends">
+                    <h3>Friend List</h3>
                     @foreach($friends as $friend)
                         <div class="friends">
                             <p>{{$friend->friend_email}}</p>
+                            Friend since {{$friend->created_at->format('Y-m-d')}}
                         </div>
                     @endforeach
                 </div>
