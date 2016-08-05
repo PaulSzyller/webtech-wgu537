@@ -11,7 +11,10 @@ class FriendsController extends \BaseController {
 
         //Get current user and list of the user's friends
 		$user = Auth::user();
-		$friends = Friend::where('user_id', '=', $user->id)->get();
+		$friends = [];
+        foreach (Friend::where('user_id', '=', $user->id)->get() as $friend) {
+            array_push($friends, User::where('id', '=', $friend->friend_id)->get()->first());
+        }
 
         //Create friend list view for current user
 		return View::make('friends', [
