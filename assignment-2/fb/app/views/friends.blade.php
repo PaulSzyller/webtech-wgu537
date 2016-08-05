@@ -75,6 +75,7 @@
                 <!-- Actual friend list -->
                 <div class="friends">
                     <h3>Friend List</h3>
+                    <h4>Friends: {{$user->num_of_friends}}</h4>
                     @foreach($friends as $friend)
                         <div class="friends">
                             <p>{{$friend->name}} ({{$friend->email}})</p>

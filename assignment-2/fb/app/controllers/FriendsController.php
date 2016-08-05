@@ -60,7 +60,7 @@ class FriendsController extends \BaseController {
                 'friend_id' => $friend->id,
 				'friend_email' => $friend_email
 			]);
-
+            $user->increment('num_of_friends');
 		}catch(Exception $e){
 			Session::flash('error_message',
 				'Oops! Something is wrong');
